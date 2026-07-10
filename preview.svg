@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="#0B1E3D"/>
+  <rect x="54" y="54" width="1092" height="522" rx="28" fill="#FFFFFF"/>
+  <rect x="90" y="90" width="360" height="24" rx="12" fill="#E8A020"/>
+  <rect x="90" y="132" width="280" height="18" rx="9" fill="#FCD34D"/>
+  <rect x="90" y="182" width="420" height="220" rx="24" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="3"/>
+  <circle cx="182" cy="286" r="62" fill="#0B1E3D"/>
+  <path d="M154 286c0-31 24-56 54-56 16 0 30 7 40 18" stroke="#E8A020" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <rect x="280" y="214" width="170" height="16" rx="8" fill="#0B1E3D"/>
+  <rect x="280" y="244" width="150" height="12" rx="6" fill="#6B7280"/>
+  <rect x="280" y="270" width="132" height="12" rx="6" fill="#6B7280"/>
+  <rect x="90" y="440" width="184" height="70" rx="18" fill="#E8A020"/>
+  <rect x="310" y="440" width="184" height="70" rx="18" fill="#FCD34D"/>
+  <rect x="530" y="90" width="580" height="420" rx="24" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="3"/>
+  <text x="576" y="170" fill="#0B1E3D" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Golden Path</text>
+  <text x="576" y="216" fill="#E8A020" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">🥇 Trouve ta voie</text>
+  <rect x="576" y="260" width="236" height="16" rx="8" fill="#0B1E3D"/>
+  <rect x="576" y="292" width="198" height="12" rx="6" fill="#6B7280"/>
+  <rect x="576" y="318" width="220" height="12" rx="6" fill="#6B7280"/>
+  <rect x="576" y="360" width="152" height="44" rx="22" fill="#0B1E3D"/>
+  <rect x="576" y="420" width="202" height="18" rx="9" fill="#E8A020"/>
+  <rect x="576" y="452" width="176" height="12" rx="6" fill="#6B7280"/>
+</svg>
