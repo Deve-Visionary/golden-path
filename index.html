@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Path 🥇 - Trouve ta voie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Progress Bar Sticky -->
+  <header class="progress-header">
+    <div class="progress-container">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-steps">
+        <span class="step-dot active" data-step="1"><em>1</em><i>Profil</i></span>
+        <span class="step-dot" data-step="2"><em>2</em><i>Test</i></span>
+        <span class="step-dot" data-step="3"><em>3</em><i>Résultats</i></span>
+        <span class="step-dot" data-step="4"><em>4</em><i>Avis</i></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- LOGO -->
+    <div class="brand">
+      <h1>Golden Path <span>🥇</span></h1>
+      <p>L'algorithme d'orientation qui révèle ta voie</p>
+    </div>
+
+    <!-- ÉTAPE 1 -->
+    <section id="step1" class="step active">
+      <div class="card">
+        <h2>Ton profil scolaire</h2>
+        <p class="subtitle">Ces infos permettent de personnaliser tes recommandations</p>
+        
+        <form id="formStep1" novalidate>
+          <div class="field">
+            <label for="nom">Nom et Prénom *</label>
+            <input type="text" id="nom" placeholder="Ex: Ouédraogo Fatou" required />
+            <span class="error" id="err-nom"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">Adresse email *</label>
+            <input type="email" id="email" placeholder="fatou@email.com" required />
+            <span class="error" id="err-email"></span>
+          </div>
+
+          <div class="field">
+            <label for="serie">Série du Baccalauréat *</label>
+            <select id="serie" required>
+              <option value="" disabled selected>Choisis ta série</option>
+              <option value="A4">A4 — Lettres et Philosophie</option>
+              <option value="C">C — Mathématiques et Sciences Physiques</option>
+              <option value="D">D — Sciences de la Vie et de la Terre</option>
+              <option value="E">E — Mathématiques et Techniques</option>
+              <option value="F2">F — Technique (F2;F3;F4;F1)</option>
+              <option value="G1">G1 — Techniques Administratives</option>
+              <option value="G2">G2 — Techniques Quantitatives de Gestion</option>
+              <option value="H">H — Informatique</option>
+            </select>
+            <span class="error" id="err-serie"></span>
+          </div>
+
+          <div class="field">
+            <label for="moyenne">Moyenne générale du BAC sur 20 </label>
+            <input type="number" id="moyenne" min="0" max="20" step="0.01" placeholder="Ex: 13.5" required />
+            <span class="error" id="err-moyenne"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">Commencer le test →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ÉTAPE 2 -->
+    <section id="step2" class="step">
+      <div class="card large">
+        <h2>Test de personnalité — 24 situations</h2>
+        <p class="subtitle">Choisis l'option qui te correspond le mieux. Pas de bonne ou mauvaise réponse.</p>
+        
+        <div class="q-header">
+          <span id="qNumber">Question 1 / 24</span>
+          <div class="q-progress"><div id="qProgressFill"></div></div>
+        </div>
+
+        <div id="questionContext" class="q-context"></div>
+
+        <div class="q-options">
+          <button id="optA" class="opt-btn"><span class="opt-label">A</span><span class="opt-text"></span><span class="opt-check">✓</span></button>
+          <button id="optB" class="opt-btn"><span class="opt-label">B</span><span class="opt-text"></span><span class="opt-check">✓</span></button>
+        </div>
+
+        <div class="q-nav">
+          <button id="btnPrevQ" class="btn-ghost">← Précédent</button>
+          <span class="q-hint">Ta réponse passe auto à la suite</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÉTAPE 3 -->
+    <section id="step3" class="step">
+      <div class="results-wrap">
+        <div class="card result-header">
+          <h2 id="resultTitle">Ton profil RIASEC !</h2>
+          <div id="hollandCode" class="holland-code"></div>
+          <p id="hollandDesc" class="subtitle"></p>
+        </div>
+
+        <div class="card">
+          <h3>Répartition de ton profil</h3>
+          <div id="riasecBars" class="bars"></div>
+        </div>
+
+        <div class="card">
+          <h3>Top 3 filières recommandées</h3>
+          <div id="topFilieres" class="filieres-grid"></div>
+          <div id="alertFiabilite" class="alert hidden"></div>
+        </div>
+
+        <div class="card confiance-card">
+          <h3>Score de confiance</h3>
+          <div class="confiance-flex">
+            <div class="circle-wrap">
+              <svg width="120" height="120"><circle cx="60" cy="60" r="52" class="bg"/><circle cx="60" cy="60" r="52" class="fg" id="confCircle"/></svg>
+              <span id="confValue">0%</span>
+            </div>
+            <div>
+              <p id="confText" class="subtitle"></p>
+              <ul class="conf-details">
+                <li><strong>Taux de réponse :</strong> <span id="confTaux"></span></li>
+                <li><strong>Compatibilité top filière :</strong> <span id="confTop"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <button id="btnGoAvis" class="btn-primary">Donner mon avis →</button>
+      </div>
+    </section>
+
+    <!-- ÉTAPE 4 -->
+    <section id="step4" class="step">
+      <div class="card large">
+        <h2>Ton avis sur Golden Path</h2>
+        <p class="subtitle">Réponds franchement. Ton avis améliore le système pour les futurs élèves.</p>
+
+        <form id="formAvis" novalidate>
+          <!-- Q manquante -->
+          <div class="field">
+            <label>Qu'est-ce que l'application ne t'a pas demandé et qui est important pour ton choix ?</label>
+            <div class="checks">
+              <label><input type="checkbox" name="missing" value="Mes notes par matière"> Mes notes par matière</label>
+              <label><input type="checkbox" name="missing" value="Le métier de mes parents"> Le métier de mes parents</label>
+              <label><input type="checkbox" name="missing" value="L'argent pour les études"> L'argent pour les études</label>
+              <label><input type="checkbox" name="missing" value="La ville où je veux étudier"> La ville où je veux étudier</label>
+              <label><input type="checkbox" name="missing" value="Rien"> Rien</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="qFear">Quelle est la chose qui te fait le plus peur pour l'après-bac ?</label>
+            <input type="text" id="qFear" placeholder="Ex: Ne pas trouver de stage, le coût..." />
+          </div>
+
+          <div class="field">
+            <label for="qBefore">Avant de faire le test, quelle filière voulais-tu faire ?</label>
+            <select id="qBefore">
+              <option value="" disabled selected>Choisis</option>
+              <option>Droit</option><option>Médecine</option><option>Informatique</option><option>Gestion</option><option>Agronomie</option><option>Génie civil</option><option>Autre</option>
+            </select>
+            <input type="text" id="qBeforeAutre" class="hidden mt" placeholder="Précise laquelle" />
+          </div>
+
+          <div class="field required">
+            <label>Après avoir vu ton résultat, choisis : *</label>
+            <div class="radios" id="qSatisfaction">
+              <label><input type="radio" name="satisfaction" value="exact" required> C'est exactement ce que je voulais</label>
+              <label><input type="radio" name="satisfaction" value="proche"> C'est proche, ça confirme mon idée</label>
+              <label><input type="radio" name="satisfaction" value="different"> C'est différent mais intéressant</label>
+              <label><input type="radio" name="satisfaction" value="a_cote"> C'est complètement à côté</label>
+              <input type="text" id="qSatisfactionAutre" class="hidden mt" placeholder="donner ton avis" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Parmi les 3 filières proposées, y en a-t-il une que tu es sûr de ne jamais pouvoir faire ?</label>
+            <div class="radios"><label><input type="radio" name="never" value="Oui"> Oui</label><label><input type="radio" name="never" value="Non"> Non</label></div>
+            <div id="neverDetail" class="hidden mt">
+              <select id="neverWhich"><option value="" disabled selected>Laquelle ?</option></select>
+              <input type="text" id="neverWhy" placeholder="Pourquoi ? manque de moyenne, trop cher, pas à Ouaga, parents refusent..." />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Le résultat t'a-t-il fait découvrir une filière que tu ne connaissais pas ?</label>
+            <div class="radios"><label><input type="radio" name="discover" value="Oui"> Oui</label><label><input type="radio" name="discover" value="Non"> Non</label></div>
+            <input type="text" id="discoverWhich" class="hidden mt" placeholder="Laquelle ?" />
+          </div>
+
+          <div class="field">
+            <label for="qShould">Qu'est-ce qu'on aurait dû te demander pour mieux te conseiller ?</label>
+            <textarea id="qShould" rows="2" placeholder="Ta suggestion..."></textarea>
+          </div>
+
+          <div class="field required">
+            <label>As-tu compris facilement les 24 questions du test ? </label>
+            <div class="radios" id="qUnderstood">
+              <label><input type="radio" name="understood" value="Oui, tout compris" required> Oui, tout compris</label>
+              <label><input type="radio" name="understood" value="Non, certains mots m'ont bloqué"> Non, certains mots m'ont bloqué</label>
+            </div>
+            <input type="text" id="understoodDetail" class="hidden mt" placeholder="Quel mot ou phrase t'a bloqué ?" />
+          </div>
+
+          <div class="field required">
+            <label>Est-ce qu'une des filières proposées est impossible pour toi à cause de tes notes, de l'argent ou de la ville ? </label>
+            <div class="radios" id="qImpossible">
+              <label><input type="radio" name="impossible" value="Oui" required> Oui</label>
+              <label><input type="radio" name="impossible" value="Non"> Non</label>
+            </div>
+            <input type="text" id="impossibleDetail" class="hidden mt" placeholder="Laquelle et pourquoi ?" />
+          </div>
+
+          <div class="field required">
+            <label>Parmi les 3 filières qu'on t'a proposées, combien t'intéressent vraiment ? </label>
+            <div class="radios" id="qInterest">
+              <label><input type="radio" name="interest" value="Aucune" required> Aucune</label>
+              <label><input type="radio" name="interest" value="1 filière"> 1 filière</label>
+              <label><input type="radio" name="interest" value="2 filières"> 2 filières</label>
+              <label><input type="radio" name="interest" value="Les 3 filières"> Les 3 filières</label>
+            </div>
+          </div>
+
+          <div class="field required">
+            <label for="qEmail">Adresse email </label>
+            <input type="email" id="qEmail" required placeholder="Confirmation email" />
+            <span class="error" id="err-qEmail"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">Envoyer mes résultats ✓</button>
+          <p id="sendStatus" class="subtitle mt"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- THANKS -->
+    <section id="stepThanks" class="step">
+      <div class="card center">
+        <div class="confetti" id="confetti"></div>
+        <h2>Merci <span id="thanksName"></span> ! 🎉</h2>
+        <p class="subtitle">Tes résultats ont été enregistrés. Tu viens d'aider les nouveaux  bacheliers du Burkina à mieux s'orienter.</p>
+        <div class="thanks-stats">
+          <p><strong>Ton code :</strong> <span id="thanksCode"></span></p>
+          <p><strong>Filière #1 :</strong> <span id="thanksF1"></span></p>
+        </div>
+        <button onclick="location.reload()" class="btn-ghost">Refaire le test</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Golden Path © 2026 — Conçu pour l'orientation au Burkina Faso</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
