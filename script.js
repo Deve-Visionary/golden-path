@@ -1,4 +1,4 @@
-/* Golden Path - Script complet Vanilla JS */
+﻿/* Golden Path - Script complet Vanilla JS */
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxoGaKwv5m22qhR5e2_BooD6OMLFzxS1DI-dA3G4bZgi5Ikmc2l7wc709JZX1ZRnyx4/exec";
 
 // ===================== DATABASE =====================
@@ -40,7 +40,7 @@ const FILIERES_DB = {
     {nom:"Génie Minier", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Exploitation Minière"},
     {nom:"MIAGE", profils:["I","C","R"], diplome:"Licence", alt:true, altDiplome:"BTS Informatique de Gestion"},
     {nom:"Assurances, Banques, Finances (ABF)", profils:["C","I","E"], diplome:"Licence", alt:true, altDiplome:"BTS Banque/Assurance"},
-    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Bâtiment"},
+    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Btiment"},
     {nom:"Génie Électrique et Énergétique (ENR)", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Énergies Renouvelables"},
     {nom:"Aéronautique", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:false, altDiplome:""}
   ],
@@ -62,7 +62,7 @@ const FILIERES_DB = {
     {nom:"Assurances, Banques, Finances (ABF)", profils:["C","I","E"], diplome:"Licence", alt:true, altDiplome:"BTS Banque/Assurance"},
     {nom:"Géographie Générale et Appliquée", profils:["I","S","R"], diplome:"Licence", alt:true, altDiplome:"DUT Géomatique/Topographie"},
     {nom:"Sociologie et Économie Rurale", profils:["S","I","E"], diplome:"Licence", alt:false, altDiplome:""},
-    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Bâtiment"},
+    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Btiment"},
     {nom:"Génie Électrique et Énergétique (ENR)", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Énergies Renouvelables"},
     {nom:"Aéronautique", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:false, altDiplome:""}
   ],
@@ -75,7 +75,7 @@ const FILIERES_DB = {
     {nom:"MPCI", profils:["I","R","C"], diplome:"Licence", alt:false, altDiplome:""},
     {nom:"Statistiques et Informatique (STIE)", profils:["I","C","R"], diplome:"Licence", alt:true, altDiplome:"BTS Statistique-Informatique"},
     {nom:"MIAGE", profils:["I","C","R"], diplome:"Licence", alt:true, altDiplome:"BTS Informatique de Gestion"},
-    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Bâtiment"},
+    {nom:"Architecture et Urbanisme", profils:["A","R","I"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Génie Civil Btiment"},
     {nom:"Génie Électrique et Énergétique (ENR)", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:true, altDiplome:"BTS Énergies Renouvelables"},
     {nom:"Aéronautique", profils:["R","I","C"], diplome:"Diplôme d'Ingénieur", alt:false, altDiplome:""},
     {nom:"Licence Professionnelle Agroéconomie", profils:["R","I","E"], diplome:"Licence", alt:true, altDiplome:"BTS Agroéconomie"}
@@ -122,7 +122,7 @@ const FILIERES_DB = {
 };
 
 const QUESTIONS = [
-  {contexte:"Un projet d'énergie solaire est lancé pour alimenter une école de ton village. Que préfères-tu faire ?", optionA:"Monter les structures métalliques de tes mains, fixer les panneaux et faire le câblage sur le terrain.", optionB:"Calculer le rendement des cellules, analyser l'ensoleillement et concevoir les plans électriques du système.", profilA:"R", profilB:"I"},
+  {contexte:"Un projet d'énergie solaire est lancé pour alimenter une école de ton village. Que préfères-tu faire ?", optionA:"Monter les structures métalliques de tes mains, fixer les panneaux et faire le cblage sur le terrain.", optionB:"Calculer le rendement des cellules, analyser l'ensoleillement et concevoir les plans électriques du système.", profilA:"R", profilB:"I"},
   {contexte:"Beaucoup de jeunes de ton quartier à Ouagadougou abandonnent l'école. Quelle action choisis-tu ?", optionA:"Donner bénévolement des cours de soutien, les écouter et encourager leurs parents à les soutenir.", optionB:"Créer une petite entreprise de recyclage pour les employer et leur donner un revenu stable.", profilA:"S", profilB:"E"},
   {contexte:"Tu rejoins un atelier qui valorise le pagne Faso Danfani. Quel poste préfères-tu occuper ?", optionA:"Tenir les registres comptables, suivre les stocks de fil et archiver les factures des clients.", optionB:"Imaginer de nouveaux motifs de tissage et dessiner les modèles de vêtements originaux.", profilA:"C", profilB:"A"},
   {contexte:"Un service veut gérer l'approvisionnement en médicaments des centres de santé ruraux. Qu'aimerais-tu faire ?", optionA:"Écrire les lignes de code, concevoir la base de données et sécuriser l'algorithme de l'application.", optionB:"Installer les serveurs, déployer les antennes réseau et assurer la maintenance du matériel.", profilA:"I", profilB:"R"},
@@ -142,7 +142,7 @@ const QUESTIONS = [
   {contexte:"Le pays a besoin d'enseignants qualifiés dans les provinces. Qu'est-ce qui guiderait ton travail ?", optionA:"Créer une relation de confiance avec tes élèves et adapter ta pédagogie aux enfants en difficulté.", optionB:"Suivre rigoureusement le programme officiel, évaluer par des barèmes stricts et tenir à jour les registres.", profilA:"S", profilB:"C"},
   {contexte:"Pour la fête de quartier, on te confie un rôle clé dans l'animation. Lequel choisis-tu ?", optionA:"Coordonner les vendeurs, gérer le budget, fixer les prix des entrées et motiver l'équipe.", optionB:"Concevoir les décors, peindre les banderoles et imaginer une ambiance visuelle originale et colorée.", profilA:"E", profilB:"A"},
   {contexte:"Un centre culturel organise un grand événement. Comment préfères-tu t'investir ?", optionA:"Composer une chanson, écrire un poème ou créer une œuvre originale pour exprimer une émotion.", optionB:"Accueillir le public, accompagner les visiteurs perdus et veiller à ce que chacun se sente bienvenu.", profilA:"A", profilB:"S"},
-  {contexte:"Ton lycée participe à un concours de robotique. Quelle mission t'enthousiasme le plus ?", optionA:"Programmer le robot, tester les algorithmes et résoudre les bugs logiques pour qu'il fonctionne.", optionB:"Assembler les pièces, souder les circuits, monter le châssis et régler les moteurs avec tes mains.", profilA:"I", profilB:"R"},
+  {contexte:"Ton lycée participe à un concours de robotique. Quelle mission t'enthousiasme le plus ?", optionA:"Programmer le robot, tester les algorithmes et résoudre les bugs logiques pour qu'il fonctionne.", optionB:"Assembler les pièces, souder les circuits, monter le chssis et régler les moteurs avec tes mains.", profilA:"I", profilB:"R"},
   {contexte:"Tu animes un stand de jus de bissap au SIAO. Qu'est-ce qui te motive le plus ?", optionA:"Attirer les clients, négocier les prix, augmenter les ventes et faire connaître ta marque.", optionB:"Discuter avec chaque client, prendre soin de son accueil et créer une ambiance chaleureuse.", profilA:"E", profilB:"S"},
   {contexte:"En classe, quelle méthode te permet de comprendre une leçon avec le plus de facilité ?", optionA:"Faire des exercices d'application, manipuler des objets et réaliser des expériences concrètes.", optionB:"Imaginer un projet artistique libre, dessiner mes idées ou écrire un texte créatif pour mieux retenir.", profilA:"R", profilB:"A"},
   {contexte:"Le smartphone devient un outil de travail essentiel. Comment aimes-tu surtout l'exploiter ?", optionA:"Structurer des données, faire des feuilles de calcul de budget, classer des dossiers et gérer un agenda.", optionB:"Faire du montage photo et vidéo pour les réseaux sociaux et créer du contenu visuel original.", profilA:"C", profilB:"A"}
